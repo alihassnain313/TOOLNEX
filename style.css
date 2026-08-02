@@ -2317,3 +2317,77 @@ button {
     }
 }
 
+/* =========================================================
+PDF TOOL ACTIONS
+========================================================= */
+
+.tool-action {
+width: 100%;
+display: flex;
+flex-direction: column;
+gap: 10px;
+margin-top: 20px;
+}
+
+.file-button {
+width: 100%;
+min-height: 46px;
+
+
+display: inline-flex;
+align-items: center;
+justify-content: center;
+
+padding: 0 16px;
+
+border: 1px solid rgba(103, 232, 249, 0.22);
+border-radius: 11px;
+
+color: #dffbff;
+background: rgba(103, 232, 249, 0.07);
+
+font-size: 0.85rem;
+font-weight: 800;
+
+cursor: pointer;
+
+transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+
+
+}
+
+.file-button:hover {
+background: rgba(103, 232, 249, 0.13);
+border-color: rgba(103, 232, 249, 0.45);
+transform: translateY(-1px);
+}
+
+.file-button:active {
+transform: translateY(0);
+}
+
+.pdf-action {
+width: 100%;
+}
+
+.tool-status {
+width: 100%;
+min-height: 20px;
+margin-top: 12px;
+
+
+color: var(--cyan);
+font-size: 0.78rem;
+line-height: 1.5;
+
+
+}
+
+.pdf-action:disabled {
+opacity: 0.65;
+cursor: wait;
+transform: none;
+}
