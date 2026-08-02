@@ -937,5 +937,730 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateQualityText();
 
+
+/* =========================================================
+   TOOLNEX — IMAGE COMPRESSOR
+========================================================= */
+
+const compressInput =
+    document.getElementById("compressImageInput");
+
+const compressPreviewArea =
+    document.getElementById("compressPreviewArea");
+
+const compressPreview =
+    document.getElementById("compressPreview");
+
+const compressPreviewStatus =
+    document.getElementById("compressPreviewStatus");
+
+const compressOriginalInfo =
+    document.getElementById("compressOriginalInfo");
+
+const compressEstimatedInfo =
+    document.getElementById("compressEstimatedInfo");
+
+const compressControls =
+    document.getElementById("compressControls");
+
+const compressQuality =
+    document.getElementById("compressQuality");
+
+const compressQualityValue =
+    document.getElementById("compressQualityValue");
+
+const compressFormat =
+    document.getElementById("compressFormat");
+
+const compressButton =
+    document.getElementById("compressImageButton");
+
+const downloadCompressedButton =
+    document.getElementById("downloadCompressedButton");
+
+const compressStatus =
+    document.getElementById("compressStatus");
+
+
+let compressImage = null;
+
+let compressOriginalFile = null;
+
+let compressedBlob = null;
+
+
+/* =====================================================
+   HELPERS
+===================================================== */
+
+function setCompressStatus(
+    message,
+    type = "normal"
+) {
+
+    if (!compressStatus) return;
+
+    compressStatus.textContent =
+        message;
+
+    compressStatus.dataset.status =
+        type;
+
+}
+
+
+function formatFileSize(bytes) {
+
+    if (!Number.isFinite(bytes)) {
+        return "—";
+    }
+
+
+    if (bytes < 1024) {
+
+        return `${bytes} B`;
+
+    }
+
+
+    if (bytes < 1024 * 1024) {
+
+        return `${(bytes / 1024).toFixed(1)} KB`;
+
+    }
+
+
+    return `${(
+        bytes /
+        (1024 * 1024)
+    ).toFixed(2)} MB`;
+
+}
+
+
+function updateCompressQualityText() {
+
+    if (
+        compressQuality &&
+        compressQualityValue
+    ) {
+
+        compressQualityValue.textContent =
+            `${compressQuality.value}%`;
+
+    }
+
+}
+
+
+/* =====================================================
+   RESET RESULT
+===================================================== */
+
+function resetCompressionResult() {
+
+    compressedBlob =
+        null;
+
+
+    if (downloadCompressedButton) {
+
+        downloadCompressedButton.disabled =
+            true;
+
+    }
+
+
+    if (compressPreviewStatus) {
+
+        compressPreviewStatus.textContent =
+            "Preview";
+
+    }
+
+}
+
+
+/* =====================================================
+   IMAGE → CANVAS
+===================================================== */
+
+function createCompressedImage() {
+
+    return new Promise(
+        (resolve, reject) => {
+
+            if (!compressImage) {
+
+                reject(
+                    new Error(
+                        "No image selected."
+                    )
+                );
+
+                return;
+
+            }
+
+
+            const canvas =
+                document.createElement(
+                    "canvas"
+                );
+
+
+            canvas.width =
+                compressImage.naturalWidth;
+
+            canvas.height =
+                compressImage.naturalHeight;
+
+
+            const context =
+                canvas.getContext(
+                    "2d"
+                );
+
+
+            if (!context) {
+
+                reject(
+                    new Error(
+                        "Canvas is not supported."
+                    )
+                );
+
+                return;
+
+            }
+
+
+            /*
+             * JPG background
+             */
+
+            if (
+                compressFormat?.value ===
+                "image/jpeg"
+            ) {
+
+                context.fillStyle =
+                    "#ffffff";
+
+                context.fillRect(
+                    0,
+                    0,
+                    canvas.width,
+                    canvas.height
+                );
+
+            }
+
+
+            context.drawImage(
+                compressImage,
+                0,
+                0
+            );
+
+
+            const quality =
+                Number(
+                    compressQuality?.value || 80
+                ) / 100;
+
+
+            const format =
+                compressFormat?.value ||
+                "image/jpeg";
+
+
+            canvas.toBlob(
+                blob => {
+
+                    if (!blob) {
+
+                        reject(
+                            new Error(
+                                "Unable to create compressed image."
+                            )
+                        );
+
+                        return;
+
+                    }
+
+
+                    resolve(blob);
+
+                },
+                format,
+                format === "image/png"
+                    ? undefined
+                    : quality
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   LOAD IMAGE
+===================================================== */
+
+if (compressInput) {
+
+    compressInput.addEventListener(
+        "change",
+        () => {
+
+            const file =
+                compressInput.files?.[0];
+
+
+            if (!file) return;
+
+
+            if (
+                !file.type.startsWith(
+                    "image/"
+                )
+            ) {
+
+                setCompressStatus(
+                    "Please choose a valid image file.",
+                    "error"
+                );
+
+                compressInput.value =
+                    "";
+
+                return;
+
+            }
+
+
+            compressOriginalFile =
+                file;
+
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload =
+                event => {
+
+                    const image =
+                        new Image();
+
+
+                    image.onload =
+                        () => {
+
+                            compressImage =
+                                image;
+
+
+                            if (compressPreview) {
+
+                                compressPreview.src =
+                                    event.target.result;
+
+                            }
+
+
+                            if (compressOriginalInfo) {
+
+                                compressOriginalInfo.textContent =
+                                    formatFileSize(
+                                        file.size
+                                    );
+
+                            }
+
+
+                            if (compressEstimatedInfo) {
+
+                                compressEstimatedInfo.textContent =
+                                    "Ready";
+
+                            }
+
+
+                            if (compressPreviewArea) {
+
+                                compressPreviewArea.hidden =
+                                    false;
+
+                            }
+
+
+                            if (compressControls) {
+
+                                compressControls.hidden =
+                                    false;
+
+                            }
+
+
+                            resetCompressionResult();
+
+                            updateCompressQualityText();
+
+
+                            setCompressStatus(
+                                `${file.name} loaded. Choose your quality and format.`,
+                                "success"
+                            );
+
+                        };
+
+
+                    image.onerror =
+                        () => {
+
+                            setCompressStatus(
+                                "Unable to read this image.",
+                                "error"
+                            );
+
+                        };
+
+
+                    image.src =
+                        event.target.result;
+
+                };
+
+
+            reader.onerror =
+                () => {
+
+                    setCompressStatus(
+                        "Unable to load the selected image.",
+                        "error"
+                    );
+
+                };
+
+
+            reader.readAsDataURL(file);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   QUALITY SLIDER
+===================================================== */
+
+if (compressQuality) {
+
+    compressQuality.addEventListener(
+        "input",
+        () => {
+
+            updateCompressQualityText();
+
+            resetCompressionResult();
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   FORMAT CHANGE
+===================================================== */
+
+if (compressFormat) {
+
+    compressFormat.addEventListener(
+        "change",
+        () => {
+
+            resetCompressionResult();
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   COMPRESS IMAGE
+===================================================== */
+
+if (compressButton) {
+
+    compressButton.addEventListener(
+        "click",
+        async () => {
+
+            if (!compressImage) {
+
+                setCompressStatus(
+                    "Please choose an image first.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            compressButton.disabled =
+                true;
+
+            compressButton.textContent =
+                "Compressing...";
+
+
+            setCompressStatus(
+                "Compressing your image...",
+                "loading"
+            );
+
+
+            try {
+
+                const blob =
+                    await createCompressedImage();
+
+
+                compressedBlob =
+                    blob;
+
+
+                if (
+                    downloadCompressedButton
+                ) {
+
+                    downloadCompressedButton.disabled =
+                        false;
+
+                }
+
+
+                if (
+                    compressEstimatedInfo
+                ) {
+
+                    compressEstimatedInfo.textContent =
+                        formatFileSize(
+                            blob.size
+                        );
+
+                }
+
+
+                if (
+                    compressPreviewStatus
+                ) {
+
+                    compressPreviewStatus.textContent =
+                        "Compressed ✓";
+
+                }
+
+
+                const originalSize =
+                    compressOriginalFile?.size ||
+                    0;
+
+
+                const compressedSize =
+                    blob.size;
+
+
+                let message;
+
+
+                if (
+                    compressedSize <
+                    originalSize
+                ) {
+
+                    const saved =
+                        (
+                            (
+                                1 -
+                                (
+                                    compressedSize /
+                                    originalSize
+                                )
+                            ) *
+                            100
+                        ).toFixed(1);
+
+
+                    message =
+                        `Done! File reduced by ${saved}%. Check the preview, then download.`;
+
+                } else {
+
+                    message =
+                        "Done! The new file is ready. It may not be smaller at this quality setting.";
+
+                }
+
+
+                setCompressStatus(
+                    message,
+                    "success"
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "TOOLNEX Compression Error:",
+                    error
+                );
+
+
+                setCompressStatus(
+                    "Unable to compress this image. Please try again.",
+                    "error"
+                );
+
+
+            } finally {
+
+                compressButton.disabled =
+                    false;
+
+                compressButton.textContent =
+                    "Compress Image ✓";
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   DOWNLOAD COMPRESSED IMAGE
+===================================================== */
+
+if (downloadCompressedButton) {
+
+    downloadCompressedButton.addEventListener(
+        "click",
+        () => {
+
+            if (!compressedBlob) {
+
+                setCompressStatus(
+                    "Please compress the image first.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            const format =
+                compressFormat?.value ||
+                "image/jpeg";
+
+
+            let extension =
+                "jpg";
+
+
+            if (
+                format ===
+                "image/webp"
+            ) {
+
+                extension =
+                    "webp";
+
+            }
+
+
+            if (
+                format ===
+                "image/png"
+            ) {
+
+                extension =
+                    "png";
+
+            }
+
+
+            const url =
+                URL.createObjectURL(
+                    compressedBlob
+                );
+
+
+            const link =
+                document.createElement(
+                    "a"
+                );
+
+
+            link.href =
+                url;
+
+
+            link.download =
+                `TOOLNEX-Compressed-Image.${extension}`;
+
+
+            document.body.appendChild(
+                link
+            );
+
+
+            link.click();
+
+
+            link.remove();
+
+
+            setTimeout(
+                () => {
+
+                    URL.revokeObjectURL(
+                        url
+                    );
+
+                },
+                1000
+            );
+
+
+            setCompressStatus(
+                `Download started — ${formatFileSize(compressedBlob.size)}.`,
+                "success"
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+updateCompressQualityText();
+
+
+
 });
 
