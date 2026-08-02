@@ -2408,3 +2408,66 @@ transform: none;
 .pdf-tool .tool-status {
     margin-top: 12px;
 }
+
+/* =========================================================
+   TOOLNEX — IMAGE UPLOAD BOX FIX
+========================================================= */
+
+.upload-box {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    min-height: 150px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 28px 20px;
+
+    border: 1px dashed rgba(103, 232, 249, 0.35);
+    border-radius: 16px;
+
+    background: rgba(103, 232, 249, 0.04);
+
+    cursor: pointer;
+
+    pointer-events: auto;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.upload-box:hover {
+    background: rgba(103, 232, 249, 0.08);
+    border-color: rgba(103, 232, 249, 0.65);
+    transform: translateY(-2px);
+}
+
+.upload-box:active {
+    transform: translateY(0);
+}
+
+.upload-box span {
+    font-size: 2rem;
+}
+
+.upload-box strong {
+    color: #dffbff;
+    font-weight: 800;
+}
+
+.upload-box small {
+    color: rgba(223, 251, 255, 0.65);
+    text-align: center;
+}
+
+.tool-workspace input[type="file"][hidden] {
+    display: none !important;
+}
+
