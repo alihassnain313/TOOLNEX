@@ -362,7 +362,7 @@
 
  
 <!-- =========================
-     PROFESSIONAL IMAGE RESIZER
+     PROFESSIONAL LIVE IMAGE RESIZER
 ========================== -->
 
 <section
@@ -381,8 +381,8 @@
         </h2>
 
         <p>
-            Set the exact dimensions, choose your format
-            and download your resized image.
+            Adjust your dimensions and preview the result
+            before downloading.
         </p>
 
     </div>
@@ -391,7 +391,7 @@
     <div class="tool-workspace image-resizer-workspace">
 
 
-        <!-- UPLOAD -->
+        <!-- IMAGE UPLOAD -->
 
         <label
             class="upload-box"
@@ -421,7 +421,7 @@
         >
 
 
-        <!-- IMAGE PREVIEW -->
+        <!-- PREVIEW -->
 
         <div
             class="image-preview-area"
@@ -429,27 +429,67 @@
             hidden
         >
 
-            <img
-                id="resizePreview"
-                alt="Selected image preview"
-            >
-
-            <div class="image-original-info">
+            <div class="preview-heading">
 
                 <strong>
-                    Original Image
+                    Live Preview
                 </strong>
 
-                <span id="resizeOriginalInfo">
-                    —
+                <span id="resizePreviewStatus">
+                    Original
                 </span>
+
+            </div>
+
+
+            <div class="preview-image-wrapper">
+
+                <img
+                    id="resizePreview"
+                    alt="Image resize preview"
+                >
+
+            </div>
+
+
+            <div class="image-size-comparison">
+
+                <div>
+
+                    <small>
+                        Original
+                    </small>
+
+                    <strong id="resizeOriginalInfo">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="size-arrow">
+                    →
+                </div>
+
+
+                <div>
+
+                    <small>
+                        New Size
+                    </small>
+
+                    <strong id="resizeNewInfo">
+                        —
+                    </strong>
+
+                </div>
 
             </div>
 
         </div>
 
 
-        <!-- RESIZE CONTROLS -->
+        <!-- CONTROLS -->
 
         <div
             class="image-controls"
@@ -457,26 +497,35 @@
             hidden
         >
 
+
+            <!-- WIDTH -->
+
             <div class="control-group">
 
                 <label for="resizeWidth">
                     Width
                 </label>
 
-                <input
-                    type="number"
-                    id="resizeWidth"
-                    min="1"
-                    step="1"
-                    placeholder="Width"
-                >
+                <div class="input-with-unit">
 
-                <span>
-                    px
-                </span>
+                    <input
+                        type="number"
+                        id="resizeWidth"
+                        min="1"
+                        step="1"
+                        placeholder="Width"
+                    >
+
+                    <span>
+                        px
+                    </span>
+
+                </div>
 
             </div>
 
+
+            <!-- HEIGHT -->
 
             <div class="control-group">
 
@@ -484,17 +533,21 @@
                     Height
                 </label>
 
-                <input
-                    type="number"
-                    id="resizeHeight"
-                    min="1"
-                    step="1"
-                    placeholder="Height"
-                >
+                <div class="input-with-unit">
 
-                <span>
-                    px
-                </span>
+                    <input
+                        type="number"
+                        id="resizeHeight"
+                        min="1"
+                        step="1"
+                        placeholder="Height"
+                    >
+
+                    <span>
+                        px
+                    </span>
+
+                </div>
 
             </div>
 
@@ -539,6 +592,78 @@
                     </option>
 
                 </select>
+
+            </div>
+
+
+            <!-- QUALITY -->
+
+            <div
+                class="control-group"
+                id="resizeQualityGroup"
+            >
+
+                <label for="resizeQuality">
+                    Quality
+                </label>
+
+                <div class="quality-row">
+
+                    <input
+                        type="range"
+                        id="resizeQuality"
+                        min="10"
+                        max="100"
+                        value="90"
+                    >
+
+                    <span id="resizeQualityValue">
+                        90%
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTION BUTTONS -->
+
+            <div class="resize-actions">
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="applyResizeButton"
+                >
+                    Apply Resize ✓
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="downloadResizeButton"
+                    disabled
+                >
+                    Download Image ↓
+                </button>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div
+                class="tool-status"
+                id="resizeStatus"
+            ></div>
+
+        </div>
+
+    </div>
+
+</section>
+
 
             </div>
 
