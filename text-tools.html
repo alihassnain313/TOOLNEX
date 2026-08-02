@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="description"
+    content="TOOLNEX Text Tools — free and useful tools for counting, cleaning, formatting and transforming text."
+>
+
+<meta
+    name="keywords"
+    content="text tools, word counter, character counter, case converter, text formatter"
+>
+
+<meta
+    name="author"
+    content="TOOLNEX"
+>
+
+<title>Text Tools — TOOLNEX</title>
+
+<link
+    rel="stylesheet"
+    href="style.css"
+>
+
+
+</head>
+
+<body>
+
+
+<!-- =========================
+     HEADER / NAVBAR
+========================== -->
+
+<header class="site-header">
+
+    <nav class="navbar">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+            TOOL<span>NEX</span>
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open menu"
+        >
+            ☰
+        </button>
+
+
+        <div
+            class="nav-links"
+            id="navLinks"
+        >
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="tools.html">
+                Tools
+            </a>
+
+            <a href="pdf-tools.html">
+                PDF
+            </a>
+
+            <a href="image-tools.html">
+                Images
+            </a>
+
+            <a
+                href="text-tools.html"
+                class="active"
+            >
+                Text
+            </a>
+
+            <a href="converters.html">
+                Converters
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<main>
+
+
+    <!-- =========================
+         PAGE HERO
+    ========================== -->
+
+    <section class="page-hero">
+
+        <div class="page-hero-content">
+
+            <span class="eyebrow">
+                TEXT TOOLS
+            </span>
+
+            <h1>
+                Work with text.
+                <span>Made simple.</span>
+            </h1>
+
+            <p>
+                Count, clean, format and transform text with
+                simple tools designed for everyday use.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TOOL SEARCH
+    ========================== -->
+
+    <section class="search-section">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                FIND A TEXT TOOL
+            </span>
+
+            <h2>
+                What do you need to do?
+            </h2>
+
+            <p>
+                Search the text tools below.
+            </p>
+
+        </div>
+
+
+        <div class="tool-search">
+
+            <span class="search-icon">
+                ⌕
+            </span>
+
+            <input
+                type="search"
+                id="textToolSearch"
+                placeholder="Search text tools..."
+                autocomplete="off"
+            >
+
+            <button
+                type="button"
+                id="textSearchButton"
+            >
+                Search
+            </button>
+
+        </div>
+
+
+        <div
+            class="search-results"
+            id="textSearchResults"
+        ></div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TEXT TOOLS GRID
+    ========================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                TEXT UTILITIES
+            </span>
+
+            <h2>
+                Choose a text tool
+            </h2>
+
+            <p>
+                Select a tool to work with your text.
+            </p>
+
+        </div>
+
+
+        <div class="tools-grid">
+
+
+            <!-- WORD COUNTER -->
+
+            <article
+                class="tool-card"
+                data-tool="word counter character counter count words text"
+            >
+
+                <div class="tool-icon">
+                    🔢
+                </div>
+
+                <h3>
+                    Word Counter
+                </h3>
+
+                <p>
+                    Count words, characters, sentences and
+                    paragraphs in your text.
+                </p>
+
+                <a
+                    href="#word-counter"
+                    class="tool-action"
+                >
+                    Open Tool →
+                </a>
+
+            </article>
+
+
+
+            <!-- CASE CONVERTER -->
+
+            <article
+                class="tool-card"
+                data-tool="case converter uppercase lowercase text case"
+            >
+
+                <div class="tool-icon">
+                    🔠
+                </div>
+
+                <h3>
+                    Case Converter
+                </h3>
+
+                <p>
+                    Convert text to uppercase, lowercase
+                    and other common text cases.
+                </p>
+
+                <a
+                    href="#case-converter"
+                    class="tool-action"
+                >
+                    Open Tool →
+                </a>
+
+            </article>
+
+
+
+            <!-- TEXT CLEANER -->
+
+            <article
+                class="tool-card"
+                data-tool="text cleaner clean whitespace remove spaces text"
+            >
+
+                <div class="tool-icon">
+                    🧹
+                </div>
+
+                <h3>
+                    Text Cleaner
+                </h3>
+
+                <p>
+                    Clean extra spaces, blank lines and
+                    unnecessary text formatting.
+                </p>
+
+                <a
+                    href="#text-cleaner"
+                    class="tool-action"
+                >
+                    Open Tool →
+                </a>
+
+            </article>
+
+
+
+            <!-- TEXT REVERSE -->
+
+            <article
+                class="tool-card"
+                data-tool="reverse text reverse letters words"
+            >
+
+                <div class="tool-icon">
+                    🔄
+                </div>
+
+                <h3>
+                    Text Reverser
+                </h3>
+
+                <p>
+                    Reverse your text quickly with a simple
+                    text transformation.
+                </p>
+
+                <a
+                    href="#text-reverser"
+                    class="tool-action"
+                >
+                    Open Tool →
+                </a>
+
+            </article>
+
+
+
+            <!-- REMOVE DUPLICATES -->
+
+            <article
+                class="tool-card"
+                data-tool="duplicate remover remove duplicate lines text"
+            >
+
+                <div class="tool-icon">
+                    🧩
+                </div>
+
+                <h3>
+                    Duplicate Line Remover
+                </h3>
+
+                <p>
+                    Remove repeated lines from a block of text.
+                </p>
+
+                <a
+                    href="#duplicate-remover"
+                    class="tool-action"
+                >
+                    Open Tool →
+                </a>
+
+            </article>
+
+
+
+            <!-- TEXT SORTER -->
+
+            <article
+                class="tool-card"
+                data-tool="text sorter sort lines alphabetical text"
+            >
+
+                <div class="tool-icon">
+                    ↕️
+                </div>
+
+                <h3>
+                    Text Sorter
+                </h3>
+
+                <p>
+                    Sort lines of text alphabetically or
+                    reverse alphabetically.
+                </p>
+
+                <a
+                    href="#text-sorter"
+                    class="tool-action"
+                >
+                    Open Tool →
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         WORD COUNTER WORKSPACE
+    ========================== -->
+
+    <section
+        class="section tool-workspace-section"
+        id="word-counter"
+    >
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                WORD COUNTER
+            </span>
+
+            <h2>
+                Count your text
+            </h2>
+
+            <p>
+                Enter or paste text below to see useful statistics.
+            </p>
+
+        </div>
+
+
+        <div class="text-tool-workspace">
+
+            <textarea
+                id="wordCounterInput"
+                rows="12"
+                placeholder="Type or paste your text here..."
+            ></textarea>
+
+
+            <div class="counter-stats">
+
+                <div class="stat-box">
+
+                    <strong id="wordCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Words
+                    </span>
+
+                </div>
+
+
+                <div class="stat-box">
+
+                    <strong id="characterCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Characters
+                    </span>
+
+                </div>
+
+
+                <div class="stat-box">
+
+                    <strong id="characterNoSpacesCount">
+                        0
+                    </strong>
+
+                    <span>
+                        No Spaces
+                    </span>
+
+                </div>
+
+
+                <div class="stat-box">
+
+                    <strong id="sentenceCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Sentences
+                    </span>
+
+                </div>
+
+
+                <div class="stat-box">
+
+                    <strong id="paragraphCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Paragraphs
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="workspace-actions">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="clearWordCounter"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CASE CONVERTER
+    ========================== -->
+
+    <section
+        class="section tool-workspace-section"
+        id="case-converter"
+    >
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                CASE CONVERTER
+            </span>
+
+            <h2>
+                Change text case
+            </h2>
+
+            <p>
+                Enter text and convert it instantly.
+            </p>
+
+        </div>
+
+
+        <div class="text-tool-workspace">
+
+            <textarea
+                id="caseConverterInput"
+                rows="10"
+                placeholder="Enter text here..."
+            ></textarea>
+
+
+            <div class="workspace-actions">
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="uppercaseButton"
+                >
+                    UPPERCASE
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="lowercaseButton"
+                >
+                    lowercase
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="capitalizeButton"
+                >
+                    Capitalize
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="clearCaseConverter"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TEXT CLEANER
+    ========================== -->
+
+    <section
+        class="section tool-workspace-section"
+        id="text-cleaner"
+    >
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                TEXT CLEANER
+            </span>
+
+            <h2>
+                Clean your text
+            </h2>
+
+            <p>
+                Remove unnecessary spaces and empty lines.
+            </p>
+
+        </div>
+
+
+        <div class="text-tool-workspace">
+
+            <textarea
+                id="textCleanerInput"
+                rows="10"
+                placeholder="Paste your text here..."
+            ></textarea>
+
+
+            <div class="workspace-actions">
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="cleanTextButton"
+                >
+                    Clean Text
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="clearTextCleaner"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TEXT REVERSER
+    ========================== -->
+
+    <section
+        class="section tool-workspace-section"
+        id="text-reverser"
+    >
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                TEXT REVERSER
+            </span>
+
+            <h2>
+                Reverse your text
+            </h2>
+
+            <p>
+                Quickly reverse the characters in your text.
+            </p>
+
+        </div>
+
+
+        <div class="text-tool-workspace">
+
+            <textarea
+                id="textReverserInput"
+                rows="8"
+                placeholder="Enter text here..."
+            ></textarea>
+
+
+            <div class="workspace-actions">
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="reverseTextButton"
+                >
+                    Reverse Text
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="clearTextReverser"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         DUPLICATE REMOVER
+    ========================== -->
+
+    <section
+        class="section tool-workspace-section"
+        id="duplicate-remover"
+    >
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                DUPLICATE REMOVER
+            </span>
+
+            <h2>
+                Remove repeated lines
+            </h2>
+
+            <p>
+                Paste lines below and remove duplicate entries.
+            </p>
+
+        </div>
+
+
+        <div class="text-tool-workspace">
+
+            <textarea
+                id="duplicateRemoverInput"
+                rows="10"
+                placeholder="Paste one item per line..."
+            ></textarea>
+
+
+            <div class="workspace-actions">
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="removeDuplicatesButton"
+                >
+                    Remove Duplicates
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="clearDuplicateRemover"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TEXT SORTER
+    ========================== -->
+
+    <section
+        class="section tool-workspace-section"
+        id="text-sorter"
+    >
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                TEXT SORTER
+            </span>
+
+            <h2>
+                Sort your text
+            </h2>
+
+            <p>
+                Sort separate lines alphabetically.
+            </p>
+
+        </div>
+
+
+        <div class="text-tool-workspace">
+
+            <textarea
+                id="textSorterInput"
+                rows="10"
+                placeholder="Enter one item per line..."
+            ></textarea>
+
+
+            <div class="workspace-actions">
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="sortTextButton"
+                >
+                    Sort A → Z
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="sortTextReverseButton"
+                >
+                    Sort Z → A
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="clearTextSorter"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="cta-section">
+
+        <div class="cta-box">
+
+            <span class="eyebrow">
+                TOOLNEX
+            </span>
+
+            <h2>
+                Need another kind of tool?
+            </h2>
+
+            <p>
+                Explore all TOOLNEX categories and discover
+                more useful utilities.
+            </p>
+
+            <a
+                href="tools.html"
+                class="btn btn-primary"
+            >
+                Explore All Tools →
+            </a>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer class="footer">
+
+    <div class="footer-main">
+
+
+        <div class="footer-brand">
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+                TOOL<span>NEX</span>
+            </a>
+
+            <p>
+                Simple, useful online tools for everyday
+                digital tasks.
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>
+                Tools
+            </h4>
+
+            <a href="tools.html">
+                All Tools
+            </a>
+
+            <a href="pdf-tools.html">
+                PDF Tools
+            </a>
+
+            <a href="image-tools.html">
+                Image Tools
+            </a>
+
+            <a
+                href="text-tools.html"
+                class="active"
+            >
+                Text Tools
+            </a>
+
+            <a href="converters.html">
+                Converters
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>
+                Company
+            </h4>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>
+                Legal
+            </h4>
+
+            <a href="privacy.html">
+                Privacy Policy
+            </a>
+
+            <a href="terms.html">
+                Terms & Conditions
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 TOOLNEX. All rights reserved.
+        </p>
+
+        <p>
+            Built for useful things.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

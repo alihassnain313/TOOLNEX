@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="description"
+    content="TOOLNEX Image Tools — simple online tools for resizing, compressing and working with images."
+>
+
+<meta
+    name="keywords"
+    content="image tools, image resizer, image compressor, online image tools"
+>
+
+<meta
+    name="author"
+    content="TOOLNEX"
+>
+
+<title>Image Tools — TOOLNEX</title>
+
+<link
+    rel="stylesheet"
+    href="style.css"
+>
+
+
+</head>
+
+<body>
+
+
+<!-- =========================
+     HEADER / NAVBAR
+========================== -->
+
+<header class="site-header">
+
+    <nav class="navbar">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+            TOOL<span>NEX</span>
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open menu"
+        >
+            ☰
+        </button>
+
+
+        <div
+            class="nav-links"
+            id="navLinks"
+        >
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="tools.html">
+                Tools
+            </a>
+
+            <a href="pdf-tools.html">
+                PDF
+            </a>
+
+            <a
+                href="image-tools.html"
+                class="active"
+            >
+                Images
+            </a>
+
+            <a href="text-tools.html">
+                Text
+            </a>
+
+            <a href="converters.html">
+                Converters
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<main>
+
+
+    <!-- =========================
+         PAGE HERO
+    ========================== -->
+
+    <section class="page-hero">
+
+        <div class="page-hero-content">
+
+            <span class="eyebrow">
+                IMAGE TOOLS
+            </span>
+
+            <h1>
+                Work with images.
+                <span>Made simple.</span>
+            </h1>
+
+            <p>
+                Useful image utilities for common tasks such as
+                resizing, compressing and converting images.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         IMAGE TOOLS
+    ========================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                IMAGE UTILITIES
+            </span>
+
+            <h2>
+                Choose an image tool
+            </h2>
+
+            <p>
+                Select a tool below to get started.
+            </p>
+
+        </div>
+
+
+        <div class="tools-grid">
+
+
+            <!-- IMAGE RESIZER -->
+
+            <article
+                class="tool-card tool-card-featured"
+                data-tool="image resizer resize image"
+            >
+
+                <div class="tool-icon">
+                    📐
+                </div>
+
+                <h3>
+                    Image Resizer
+                </h3>
+
+                <p>
+                    Resize an image to your preferred width
+                    and height.
+                </p>
+
+                <a
+                    href="#image-resizer"
+                    class="tool-action"
+                >
+                    Open Tool →
+                </a>
+
+            </article>
+
+
+
+            <!-- IMAGE COMPRESSOR -->
+
+            <article
+                class="tool-card"
+                data-tool="image compressor compress image reduce size"
+            >
+
+                <div class="tool-icon">
+                    🗜️
+                </div>
+
+                <h3>
+                    Image Compressor
+                </h3>
+
+                <p>
+                    Reduce image file size while keeping
+                    useful visual quality.
+                </p>
+
+                <a
+                    href="#image-compressor"
+                    class="tool-action"
+                >
+                    Open Tool →
+                </a>
+
+            </article>
+
+
+
+            <!-- IMAGE CONVERTER -->
+
+            <article
+                class="tool-card"
+                data-tool="image converter jpg png webp convert image"
+            >
+
+                <div class="tool-icon">
+                    🔄
+                </div>
+
+                <h3>
+                    Image Converter
+                </h3>
+
+                <p>
+                    Convert images between commonly used
+                    image formats.
+                </p>
+
+                <a
+                    href="#image-converter"
+                    class="tool-action"
+                >
+                    Open Tool →
+                </a>
+
+            </article>
+
+
+
+            <!-- IMAGE CROP -->
+
+            <article
+                class="tool-card"
+                data-tool="image crop cropper"
+            >
+
+                <div class="tool-icon">
+                    ✂️
+                </div>
+
+                <h3>
+                    Image Cropper
+                </h3>
+
+                <p>
+                    Crop unwanted areas and focus on the
+                    part of an image you need.
+                </p>
+
+                <a
+                    href="#image-cropper"
+                    class="tool-action"
+                >
+                    Open Tool →
+                </a>
+
+            </article>
+
+
+
+            <!-- IMAGE ROTATOR -->
+
+            <article
+                class="tool-card"
+                data-tool="image rotate rotation flip image"
+            >
+
+                <div class="tool-icon">
+                    🔃
+                </div>
+
+                <h3>
+                    Image Rotator
+                </h3>
+
+                <p>
+                    Rotate or flip images quickly and easily.
+                </p>
+
+                <a
+                    href="#image-rotator"
+                    class="tool-action"
+                >
+                    Open Tool →
+                </a>
+
+            </article>
+
+
+
+            <!-- IMAGE INFORMATION -->
+
+            <article
+                class="tool-card"
+                data-tool="image information image details metadata"
+            >
+
+                <div class="tool-icon">
+                    🔎
+                </div>
+
+                <h3>
+                    Image Information
+                </h3>
+
+                <p>
+                    View useful information such as image
+                    dimensions and file details.
+                </p>
+
+                <a
+                    href="#image-information"
+                    class="tool-action"
+                >
+                    Open Tool →
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         IMAGE RESIZER PREVIEW
+    ========================== -->
+
+    <section
+        class="section tool-preview-section"
+        id="image-resizer"
+    >
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                IMAGE RESIZER
+            </span>
+
+            <h2>
+                Resize images easily
+            </h2>
+
+            <p>
+                Upload an image and choose the dimensions
+                you want to use.
+            </p>
+
+        </div>
+
+
+        <div class="tool-workspace">
+
+            <div class="workspace-icon">
+                📐
+            </div>
+
+            <h3>
+                Image Resizer
+            </h3>
+
+            <p>
+                Your image resizing workspace will appear here.
+                Upload an image to begin.
+            </p>
+
+            <label
+                class="upload-box"
+                for="resizeImageInput"
+            >
+
+                <span>
+                    📤
+                </span>
+
+                <strong>
+                    Choose an image
+                </strong>
+
+                <small>
+                    JPG, PNG, WEBP and common image formats
+                </small>
+
+            </label>
+
+            <input
+                type="file"
+                id="resizeImageInput"
+                accept="image/*"
+                hidden
+            >
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         COMPRESSOR PREVIEW
+    ========================== -->
+
+    <section
+        class="section tool-preview-section"
+        id="image-compressor"
+    >
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                IMAGE COMPRESSOR
+            </span>
+
+            <h2>
+                Make images smaller
+            </h2>
+
+            <p>
+                Reduce image file size for easier storage
+                and sharing.
+            </p>
+
+        </div>
+
+
+        <div class="tool-workspace">
+
+            <div class="workspace-icon">
+                🗜️
+            </div>
+
+            <h3>
+                Image Compressor
+            </h3>
+
+            <p>
+                Upload an image to start the compression process.
+            </p>
+
+            <label
+                class="upload-box"
+                for="compressImageInput"
+            >
+
+                <span>
+                    📤
+                </span>
+
+                <strong>
+                    Choose an image
+                </strong>
+
+                <small>
+                    Select an image from your device
+                </small>
+
+            </label>
+
+            <input
+                type="file"
+                id="compressImageInput"
+                accept="image/*"
+                hidden
+            >
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONVERTER PREVIEW
+    ========================== -->
+
+    <section
+        class="section tool-preview-section"
+        id="image-converter"
+    >
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                IMAGE CONVERTER
+            </span>
+
+            <h2>
+                Convert image formats
+            </h2>
+
+            <p>
+                Prepare images for different uses and platforms.
+            </p>
+
+        </div>
+
+
+        <div class="tool-workspace">
+
+            <div class="workspace-icon">
+                🔄
+            </div>
+
+            <h3>
+                Image Converter
+            </h3>
+
+            <p>
+                Image format conversion functionality will
+                be available in this workspace.
+            </p>
+
+            <label
+                class="upload-box"
+                for="convertImageInput"
+            >
+
+                <span>
+                    📤
+                </span>
+
+                <strong>
+                    Choose an image
+                </strong>
+
+                <small>
+                    JPG, PNG, WEBP and more
+                </small>
+
+            </label>
+
+            <input
+                type="file"
+                id="convertImageInput"
+                accept="image/*"
+                hidden
+            >
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CROP / ROTATE / INFO
+    ========================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                MORE IMAGE TOOLS
+            </span>
+
+            <h2>
+                More tools coming together
+            </h2>
+
+            <p>
+                Additional image utilities can be added here
+                as TOOLNEX grows.
+            </p>
+
+        </div>
+
+
+        <div class="quick-tools">
+
+
+            <a
+                href="#image-cropper"
+                class="quick-tool"
+            >
+
+                <span>
+                    ✂️
+                </span>
+
+                <div>
+
+                    <strong>
+                        Image Cropper
+                    </strong>
+
+                    <small>
+                        Crop images to the area you need
+                    </small>
+
+                </div>
+
+                <b>
+                    →
+                </b>
+
+            </a>
+
+
+
+            <a
+                href="#image-rotator"
+                class="quick-tool"
+            >
+
+                <span>
+                    🔃
+                </span>
+
+                <div>
+
+                    <strong>
+                        Image Rotator
+                    </strong>
+
+                    <small>
+                        Rotate or flip images
+                    </small>
+
+                </div>
+
+                <b>
+                    →
+                </b>
+
+            </a>
+
+
+
+            <a
+                href="#image-information"
+                class="quick-tool"
+            >
+
+                <span>
+                    🔎
+                </span>
+
+                <div>
+
+                    <strong>
+                        Image Information
+                    </strong>
+
+                    <small>
+                        Check dimensions and file details
+                    </small>
+
+                </div>
+
+                <b>
+                    →
+                </b>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="cta-section">
+
+        <div class="cta-box">
+
+            <span class="eyebrow">
+                TOOLNEX
+            </span>
+
+            <h2>
+                Need another kind of tool?
+            </h2>
+
+            <p>
+                Explore all TOOLNEX categories and discover
+                more useful utilities.
+            </p>
+
+            <a
+                href="tools.html"
+                class="btn btn-primary"
+            >
+                Explore All Tools →
+            </a>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer class="footer">
+
+    <div class="footer-main">
+
+
+        <div class="footer-brand">
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+                TOOL<span>NEX</span>
+            </a>
+
+            <p>
+                Simple, useful online tools for everyday
+                digital tasks.
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>
+                Tools
+            </h4>
+
+            <a href="tools.html">
+                All Tools
+            </a>
+
+            <a href="pdf-tools.html">
+                PDF Tools
+            </a>
+
+            <a
+                href="image-tools.html"
+                class="active"
+            >
+                Image Tools
+            </a>
+
+            <a href="text-tools.html">
+                Text Tools
+            </a>
+
+            <a href="converters.html">
+                Converters
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>
+                Company
+            </h4>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>
+                Legal
+            </h4>
+
+            <a href="privacy.html">
+                Privacy Policy
+            </a>
+
+            <a href="terms.html">
+                Terms & Conditions
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 TOOLNEX. All rights reserved.
+        </p>
+
+        <p>
+            Built for useful things.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="description"
+    content="TOOLNEX Converters — useful online converters for length, weight, temperature, time, data and more."
+>
+
+<meta
+    name="keywords"
+    content="unit converter, length converter, weight converter, temperature converter, time converter, data converter"
+>
+
+<meta
+    name="author"
+    content="TOOLNEX"
+>
+
+<title>Converters — TOOLNEX</title>
+
+<link
+    rel="stylesheet"
+    href="style.css"
+>
+
+
+</head>
+
+<body>
+
+
+<!-- =========================
+     HEADER / NAVBAR
+========================== -->
+
+<header class="site-header">
+
+    <nav class="navbar">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+            TOOL<span>NEX</span>
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open menu"
+        >
+            ☰
+        </button>
+
+
+        <div
+            class="nav-links"
+            id="navLinks"
+        >
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="tools.html">
+                Tools
+            </a>
+
+            <a href="pdf-tools.html">
+                PDF
+            </a>
+
+            <a href="image-tools.html">
+                Images
+            </a>
+
+            <a href="text-tools.html">
+                Text
+            </a>
+
+            <a
+                href="converters.html"
+                class="active"
+            >
+                Converters
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<main>
+
+
+    <!-- =========================
+         PAGE HERO
+    ========================== -->
+
+    <section class="page-hero">
+
+        <div class="page-hero-content">
+
+            <span class="eyebrow">
+                CONVERTERS
+            </span>
+
+            <h1>
+                Convert values.
+                <span>In seconds.</span>
+            </h1>
+
+            <p>
+                Simple converters for everyday measurements,
+                numbers, data and other useful values.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONVERTER SEARCH
+    ========================== -->
+
+    <section class="search-section">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                FIND A CONVERTER
+            </span>
+
+            <h2>
+                What do you want to convert?
+            </h2>
+
+            <p>
+                Search the available converters below.
+            </p>
+
+        </div>
+
+
+        <div class="tool-search">
+
+            <span class="search-icon">
+                ⌕
+            </span>
+
+            <input
+                type="search"
+                id="converterSearch"
+                placeholder="Search converters..."
+                autocomplete="off"
+            >
+
+            <button
+                type="button"
+                id="converterSearchButton"
+            >
+                Search
+            </button>
+
+        </div>
+
+
+        <div
+            class="search-results"
+            id="converterSearchResults"
+        ></div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONVERTER GRID
+    ========================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                UNIT CONVERTERS
+            </span>
+
+            <h2>
+                Choose a converter
+            </h2>
+
+            <p>
+                Select the type of value you want to convert.
+            </p>
+
+        </div>
+
+
+        <div class="tools-grid">
+
+
+            <!-- LENGTH -->
+
+            <article
+                class="tool-card"
+                data-tool="length converter distance meter kilometer mile feet inches"
+            >
+
+                <div class="tool-icon">
+                    📏
+                </div>
+
+                <h3>
+                    Length Converter
+                </h3>
+
+                <p>
+                    Convert meters, kilometers, miles, feet,
+                    inches and more.
+                </p>
+
+                <a
+                    href="#length-converter"
+                    class="tool-action"
+                >
+                    Open Tool →
+                </a>
+
+            </article>
+
+
+
+            <!-- WEIGHT -->
+
+            <article
+                class="tool-card"
+                data-tool="weight converter mass kilogram gram pound ounce"
+            >
+
+                <div class="tool-icon">
+                    ⚖️
+                </div>
+
+                <h3>
+                    Weight Converter
+                </h3>
+
+                <p>
+                    Convert kilograms, grams, pounds, ounces
+                    and other units.
+                </p>
+
+                <a
+                    href="#weight-converter"
+                    class="tool-action"
+                >
+                    Open Tool →
+                </a>
+
+            </article>
+
+
+
+            <!-- TEMPERATURE -->
+
+            <article
+                class="tool-card"
+                data-tool="temperature converter celsius fahrenheit kelvin"
+            >
+
+                <div class="tool-icon">
+                    🌡️
+                </div>
+
+                <h3>
+                    Temperature Converter
+                </h3>
+
+                <p>
+                    Convert Celsius, Fahrenheit and Kelvin
+                    temperatures.
+                </p>
+
+                <a
+                    href="#temperature-converter"
+                    class="tool-action"
+                >
+                    Open Tool →
+                </a>
+
+            </article>
+
+
+
+            <!-- TIME -->
+
+            <article
+                class="tool-card"
+                data-tool="time converter seconds minutes hours days"
+            >
+
+                <div class="tool-icon">
+                    ⏱️
+                </div>
+
+                <h3>
+                    Time Converter
+                </h3>
+
+                <p>
+                    Convert seconds, minutes, hours and days.
+                </p>
+
+                <a
+                    href="#time-converter"
+                    class="tool-action"
+                >
+                    Open Tool →
+                </a>
+
+            </article>
+
+
+
+            <!-- AREA -->
+
+            <article
+                class="tool-card"
+                data-tool="area converter square meter square feet acre hectare"
+            >
+
+                <div class="tool-icon">
+                    📐
+                </div>
+
+                <h3>
+                    Area Converter
+                </h3>
+
+                <p>
+                    Convert square meters, square feet, acres
+                    and other area units.
+                </p>
+
+                <a
+                    href="#area-converter"
+                    class="tool-action"
+                >
+                    Open Tool →
+                </a>
+
+            </article>
+
+
+
+            <!-- DATA -->
+
+            <article
+                class="tool-card"
+                data-tool="data converter bytes kilobytes megabytes gigabytes storage"
+            >
+
+                <div class="tool-icon">
+                    💾
+                </div>
+
+                <h3>
+                    Data Converter
+                </h3>
+
+                <p>
+                    Convert bytes, KB, MB, GB and other
+                    digital storage units.
+                </p>
+
+                <a
+                    href="#data-converter"
+                    class="tool-action"
+                >
+                    Open Tool →
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         LENGTH CONVERTER
+    ========================== -->
+
+    <section
+        class="section tool-workspace-section"
+        id="length-converter"
+    >
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                LENGTH
+            </span>
+
+            <h2>
+                Length Converter
+            </h2>
+
+            <p>
+                Convert common length and distance units.
+            </p>
+
+        </div>
+
+
+        <div class="converter-workspace">
+
+            <div class="converter-input-group">
+
+                <label for="lengthValue">
+                    Value
+                </label>
+
+                <input
+                    type="number"
+                    id="lengthValue"
+                    placeholder="Enter value"
+                    step="any"
+                >
+
+            </div>
+
+
+            <div class="converter-input-group">
+
+                <label for="lengthFrom">
+                    From
+                </label>
+
+                <select id="lengthFrom">
+
+                    <option value="meter">
+                        Meter
+                    </option>
+
+                    <option value="kilometer">
+                        Kilometer
+                    </option>
+
+                    <option value="centimeter">
+                        Centimeter
+                    </option>
+
+                    <option value="millimeter">
+                        Millimeter
+                    </option>
+
+                    <option value="mile">
+                        Mile
+                    </option>
+
+                    <option value="yard">
+                        Yard
+                    </option>
+
+                    <option value="foot">
+                        Foot
+                    </option>
+
+                    <option value="inch">
+                        Inch
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="converter-arrow">
+                →
+            </div>
+
+
+            <div class="converter-input-group">
+
+                <label for="lengthTo">
+                    To
+                </label>
+
+                <select id="lengthTo">
+
+                    <option value="kilometer">
+                        Kilometer
+                    </option>
+
+                    <option value="meter">
+                        Meter
+                    </option>
+
+                    <option value="centimeter">
+                        Centimeter
+                    </option>
+
+                    <option value="millimeter">
+                        Millimeter
+                    </option>
+
+                    <option value="mile">
+                        Mile
+                    </option>
+
+                    <option value="yard">
+                        Yard
+                    </option>
+
+                    <option value="foot">
+                        Foot
+                    </option>
+
+                    <option value="inch">
+                        Inch
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="btn btn-primary"
+                id="convertLengthButton"
+            >
+                Convert
+            </button>
+
+
+            <div
+                class="converter-result"
+                id="lengthResult"
+            >
+                Result will appear here
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         WEIGHT CONVERTER
+    ========================== -->
+
+    <section
+        class="section tool-workspace-section"
+        id="weight-converter"
+    >
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                WEIGHT
+            </span>
+
+            <h2>
+                Weight Converter
+            </h2>
+
+            <p>
+                Convert common weight and mass units.
+            </p>
+
+        </div>
+
+
+        <div class="converter-workspace">
+
+            <div class="converter-input-group">
+
+                <label for="weightValue">
+                    Value
+                </label>
+
+                <input
+                    type="number"
+                    id="weightValue"
+                    placeholder="Enter value"
+                    step="any"
+                >
+
+            </div>
+
+
+            <div class="converter-input-group">
+
+                <label for="weightFrom">
+                    From
+                </label>
+
+                <select id="weightFrom">
+
+                    <option value="kilogram">
+                        Kilogram
+                    </option>
+
+                    <option value="gram">
+                        Gram
+                    </option>
+
+                    <option value="milligram">
+                        Milligram
+                    </option>
+
+                    <option value="pound">
+                        Pound
+                    </option>
+
+                    <option value="ounce">
+                        Ounce
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="converter-arrow">
+                →
+            </div>
+
+
+            <div class="converter-input-group">
+
+                <label for="weightTo">
+                    To
+                </label>
+
+                <select id="weightTo">
+
+                    <option value="gram">
+                        Gram
+                    </option>
+
+                    <option value="kilogram">
+                        Kilogram
+                    </option>
+
+                    <option value="milligram">
+                        Milligram
+                    </option>
+
+                    <option value="pound">
+                        Pound
+                    </option>
+
+                    <option value="ounce">
+                        Ounce
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="btn btn-primary"
+                id="convertWeightButton"
+            >
+                Convert
+            </button>
+
+
+            <div
+                class="converter-result"
+                id="weightResult"
+            >
+                Result will appear here
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TEMPERATURE CONVERTER
+    ========================== -->
+
+    <section
+        class="section tool-workspace-section"
+        id="temperature-converter"
+    >
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                TEMPERATURE
+            </span>
+
+            <h2>
+                Temperature Converter
+            </h2>
+
+            <p>
+                Convert Celsius, Fahrenheit and Kelvin.
+            </p>
+
+        </div>
+
+
+        <div class="converter-workspace">
+
+            <div class="converter-input-group">
+
+                <label for="temperatureValue">
+                    Value
+                </label>
+
+                <input
+                    type="number"
+                    id="temperatureValue"
+                    placeholder="Enter temperature"
+                    step="any"
+                >
+
+            </div>
+
+
+            <div class="converter-input-group">
+
+                <label for="temperatureFrom">
+                    From
+                </label>
+
+                <select id="temperatureFrom">
+
+                    <option value="celsius">
+                        Celsius
+                    </option>
+
+                    <option value="fahrenheit">
+                        Fahrenheit
+                    </option>
+
+                    <option value="kelvin">
+                        Kelvin
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="converter-arrow">
+                →
+            </div>
+
+
+            <div class="converter-input-group">
+
+                <label for="temperatureTo">
+                    To
+                </label>
+
+                <select id="temperatureTo">
+
+                    <option value="fahrenheit">
+                        Fahrenheit
+                    </option>
+
+                    <option value="celsius">
+                        Celsius
+                    </option>
+
+                    <option value="kelvin">
+                        Kelvin
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="btn btn-primary"
+                id="convertTemperatureButton"
+            >
+                Convert
+            </button>
+
+
+            <div
+                class="converter-result"
+                id="temperatureResult"
+            >
+                Result will appear here
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TIME CONVERTER
+    ========================== -->
+
+    <section
+        class="section tool-workspace-section"
+        id="time-converter"
+    >
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                TIME
+            </span>
+
+            <h2>
+                Time Converter
+            </h2>
+
+            <p>
+                Convert seconds, minutes, hours and days.
+            </p>
+
+        </div>
+
+
+        <div class="converter-workspace">
+
+            <div class="converter-input-group">
+
+                <label for="timeValue">
+                    Value
+                </label>
+
+                <input
+                    type="number"
+                    id="timeValue"
+                    placeholder="Enter value"
+                    step="any"
+                >
+
+            </div>
+
+
+            <div class="converter-input-group">
+
+                <label for="timeFrom">
+                    From
+                </label>
+
+                <select id="timeFrom">
+
+                    <option value="second">
+                        Seconds
+                    </option>
+
+                    <option value="minute">
+                        Minutes
+                    </option>
+
+                    <option value="hour">
+                        Hours
+                    </option>
+
+                    <option value="day">
+                        Days
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="converter-arrow">
+                →
+            </div>
+
+
+            <div class="converter-input-group">
+
+                <label for="timeTo">
+                    To
+                </label>
+
+                <select id="timeTo">
+
+                    <option value="minute">
+                        Minutes
+                    </option>
+
+                    <option value="second">
+                        Seconds
+                    </option>
+
+                    <option value="hour">
+                        Hours
+                    </option>
+
+                    <option value="day">
+                        Days
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="btn btn-primary"
+                id="convertTimeButton"
+            >
+                Convert
+            </button>
+
+
+            <div
+                class="converter-result"
+                id="timeResult"
+            >
+                Result will appear here
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         AREA CONVERTER
+    ========================== -->
+
+    <section
+        class="section tool-workspace-section"
+        id="area-converter"
+    >
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                AREA
+            </span>
+
+            <h2>
+                Area Converter
+            </h2>
+
+            <p>
+                Convert common units of area.
+            </p>
+
+        </div>
+
+
+        <div class="converter-workspace">
+
+            <div class="converter-input-group">
+
+                <label for="areaValue">
+                    Value
+                </label>
+
+                <input
+                    type="number"
+                    id="areaValue"
+                    placeholder="Enter value"
+                    step="any"
+                >
+
+            </div>
+
+
+            <div class="converter-input-group">
+
+                <label for="areaFrom">
+                    From
+                </label>
+
+                <select id="areaFrom">
+
+                    <option value="squareMeter">
+                        Square Meter
+                    </option>
+
+                    <option value="squareKilometer">
+                        Square Kilometer
+                    </option>
+
+                    <option value="squareFoot">
+                        Square Foot
+                    </option>
+
+                    <option value="squareYard">
+                        Square Yard
+                    </option>
+
+                    <option value="acre">
+                        Acre
+                    </option>
+
+                    <option value="hectare">
+                        Hectare
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="converter-arrow">
+                →
+            </div>
+
+
+            <div class="converter-input-group">
+
+                <label for="areaTo">
+                    To
+                </label>
+
+                <select id="areaTo">
+
+                    <option value="squareFoot">
+                        Square Foot
+                    </option>
+
+                    <option value="squareMeter">
+                        Square Meter
+                    </option>
+
+                    <option value="squareKilometer">
+                        Square Kilometer
+                    </option>
+
+                    <option value="squareYard">
+                        Square Yard
+                    </option>
+
+                    <option value="acre">
+                        Acre
+                    </option>
+
+                    <option value="hectare">
+                        Hectare
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="btn btn-primary"
+                id="convertAreaButton"
+            >
+                Convert
+            </button>
+
+
+            <div
+                class="converter-result"
+                id="areaResult"
+            >
+                Result will appear here
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         DATA CONVERTER
+    ========================== -->
+
+    <section
+        class="section tool-workspace-section"
+        id="data-converter"
+    >
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                DIGITAL DATA
+            </span>
+
+            <h2>
+                Data Converter
+            </h2>
+
+            <p>
+                Convert common digital storage units.
+            </p>
+
+        </div>
+
+
+        <div class="converter-workspace">
+
+            <div class="converter-input-group">
+
+                <label for="dataValue">
+                    Value
+                </label>
+
+                <input
+                    type="number"
+                    id="dataValue"
+                    placeholder="Enter value"
+                    step="any"
+                >
+
+            </div>
+
+
+            <div class="converter-input-group">
+
+                <label for="dataFrom">
+                    From
+                </label>
+
+                <select id="dataFrom">
+
+                    <option value="byte">
+                        Bytes
+                    </option>
+
+                    <option value="kilobyte">
+                        Kilobytes
+                    </option>
+
+                    <option value="megabyte">
+                        Megabytes
+                    </option>
+
+                    <option value="gigabyte">
+                        Gigabytes
+                    </option>
+
+                    <option value="terabyte">
+                        Terabytes
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="converter-arrow">
+                →
+            </div>
+
+
+            <div class="converter-input-group">
+
+                <label for="dataTo">
+                    To
+                </label>
+
+                <select id="dataTo">
+
+                    <option value="megabyte">
+                        Megabytes
+                    </option>
+
+                    <option value="byte">
+                        Bytes
+                    </option>
+
+                    <option value="kilobyte">
+                        Kilobytes
+                    </option>
+
+                    <option value="gigabyte">
+                        Gigabytes
+                    </option>
+
+                    <option value="terabyte">
+                        Terabytes
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="btn btn-primary"
+                id="convertDataButton"
+            >
+                Convert
+            </button>
+
+
+            <div
+                class="converter-result"
+                id="dataResult"
+            >
+                Result will appear here
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="cta-section">
+
+        <div class="cta-box">
+
+            <span class="eyebrow">
+                TOOLNEX
+            </span>
+
+            <h2>
+                Need another kind of tool?
+            </h2>
+
+            <p>
+                Explore all TOOLNEX categories and discover
+                more useful utilities.
+            </p>
+
+            <a
+                href="tools.html"
+                class="btn btn-primary"
+            >
+                Explore All Tools →
+            </a>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer class="footer">
+
+    <div class="footer-main">
+
+
+        <div class="footer-brand">
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+                TOOL<span>NEX</span>
+            </a>
+
+            <p>
+                Simple, useful online tools for everyday
+                digital tasks.
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>
+                Tools
+            </h4>
+
+            <a href="tools.html">
+                All Tools
+            </a>
+
+            <a href="pdf-tools.html">
+                PDF Tools
+            </a>
+
+            <a href="image-tools.html">
+                Image Tools
+            </a>
+
+            <a href="text-tools.html">
+                Text Tools
+            </a>
+
+            <a
+                href="converters.html"
+                class="active"
+            >
+                Converters
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>
+                Company
+            </h4>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>
+                Legal
+            </h4>
+
+            <a href="privacy.html">
+                Privacy Policy
+            </a>
+
+            <a href="terms.html">
+                Terms & Conditions
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 TOOLNEX. All rights reserved.
+        </p>
+
+        <p>
+            Built for useful things.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
