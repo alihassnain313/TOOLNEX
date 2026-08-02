@@ -557,6 +557,10 @@
 
 </footer>
 
+<!-- PDF LIBRARY -->
+
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
 <!-- GLOBAL JAVASCRIPT -->
 
 <script src="script.js"></script>
