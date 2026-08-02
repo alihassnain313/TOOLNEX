@@ -1,892 +1,569 @@
-/* =========================================================
-   TOOLNEX — PDF TOOLS ENGINE
-   ========================================================= */
+<!DOCTYPE html>
 
-document.addEventListener("DOMContentLoaded", () => {
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
 
-    /* =====================================================
-       PDF.JS + PDF-LIB CHECK
-    ===================================================== */
 
-    const hasPDFLib = typeof PDFLib !== "undefined";
-    const hasPDFJS = typeof pdfjsLib !== "undefined";
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<meta
+    name="description"
+    content="TOOLNEX PDF tools — merge, split, compress and convert PDF files online."
+>
 
-    /* =====================================================
-       ELEMENTS
-    ===================================================== */
+<meta
+    name="keywords"
+    content="PDF tools, merge PDF, split PDF, compress PDF, PDF to image, TOOLNEX"
+>
 
-    const mergeFiles = document.getElementById("mergeFiles");
-    const splitFile = document.getElementById("splitFile");
-    const compressFile = document.getElementById("compressFile");
-    const pdfImageFile = document.getElementById("pdfImageFile");
+<meta name="author" content="TOOLNEX">
 
-    const mergeButton =
-        document.querySelector('[data-action="merge"]');
+<title>PDF Tools — TOOLNEX</title>
 
-    const splitButton =
-        document.querySelector('[data-action="split"]');
+<link rel="stylesheet" href="style.css">
 
-    const compressButton =
-        document.querySelector('[data-action="compress"]');
 
-    const pdfImageButton =
-        document.querySelector('[data-action="pdf-to-image"]');
+</head>
 
-    const mergeStatus =
-        document.getElementById("mergeStatus");
+<body>
 
-    const splitStatus =
-        document.getElementById("splitStatus");
+<header class="site-header">
 
-    const compressStatus =
-        document.getElementById("compressStatus");
 
-    const pdfImageStatus =
-        document.getElementById("pdfImageStatus");
+<nav class="navbar">
 
+    <a href="index.html" class="logo">
+        TOOL<span>NEX</span>
+    </a>
 
-    /* =====================================================
-       STATUS HELPER
-    ===================================================== */
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open menu"
+    >
+        ☰
+    </button>
 
-    function setStatus(element, message, type = "") {
+    <div class="nav-links" id="navLinks">
 
-        if (!element) return;
+        <a href="index.html">Home</a>
 
-        element.textContent = message;
+        <a href="tools.html">Tools</a>
 
-        element.classList.remove(
-            "success",
-            "error",
-            "loading"
-        );
+        <a href="pdf-tools.html" class="active">PDF</a>
 
-        if (type) {
-            element.classList.add(type);
-        }
+        <a href="image-tools.html">Images</a>
 
-    }
+        <a href="text-tools.html">Text</a>
 
+        <a href="converters.html">Converters</a>
 
-    /* =====================================================
-       FILE SIZE
-    ===================================================== */
+        <a href="about.html">About</a>
 
-    function formatFileSize(bytes) {
+        <a href="contact.html">Contact</a>
 
-        if (bytes < 1024) {
-            return `${bytes} B`;
-        }
+    </div>
 
-        if (bytes < 1024 * 1024) {
-            return `${(bytes / 1024).toFixed(1)} KB`;
-        }
+</nav>
 
-        return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
 
-    }
+</header>
 
+<main>
 
-    /* =====================================================
-       DOWNLOAD HELPER
-    ===================================================== */
 
-    function downloadBlob(blob, filename) {
+<!-- PAGE HERO -->
 
-        const url = URL.createObjectURL(blob);
+<section class="page-hero">
 
-        const link = document.createElement("a");
+    <div class="page-hero-content">
 
-        link.href = url;
-        link.download = filename;
+        <span class="eyebrow">
+            TOOLNEX PDF TOOLBOX
+        </span>
 
-        document.body.appendChild(link);
+        <h1>
+            PDF <span>Tools</span>
+        </h1>
 
-        link.click();
+        <p>
+            Simple browser-based tools for everyday PDF tasks.
+            Choose a tool below and get started.
+        </p>
 
-        link.remove();
+    </div>
 
-        setTimeout(() => {
-            URL.revokeObjectURL(url);
-        }, 1000);
+</section>
 
-    }
 
+<!-- PDF TOOLS -->
 
-    /* =====================================================
-       BUTTON LOADING
-    ===================================================== */
+<section class="section">
 
-    function setButtonLoading(button, loading, normalText) {
+    <div class="section-heading">
 
-        if (!button) return;
+        <span class="eyebrow">
+            PDF TOOLBOX
+        </span>
 
-        button.disabled = loading;
+        <h2>
+            Work with your <span>PDFs</span>
+        </h2>
 
-        if (loading) {
+        <p>
+            Select a PDF tool and process your files directly in your browser.
+        </p>
 
-            button.dataset.originalText =
-                button.textContent;
+    </div>
 
-            button.textContent =
-                "Processing...";
 
-        } else {
+    <div class="tools-grid">
 
-            button.textContent =
-                normalText ||
-                button.dataset.originalText ||
-                "Done";
 
-        }
+        <!-- MERGE PDF -->
 
-    }
+        <article class="tool-card pdf-tool">
 
+            <div class="tool-icon">
+                📄
+            </div>
 
-    /* =====================================================
-       FILE VALIDATION
-    ===================================================== */
+            <h3>
+                Merge PDF
+            </h3>
 
-    function isPDF(file) {
+            <p>
+                Combine multiple PDF files into one document.
+            </p>
 
-        if (!file) return false;
+            <div class="tool-action">
 
-        return (
-            file.type === "application/pdf" ||
-            file.name.toLowerCase().endsWith(".pdf")
-        );
+                <label
+                    for="mergeFiles"
+                    class="file-button"
+                >
+                    Choose PDFs
+                </label>
 
-    }
+                <input
+                    type="file"
+                    id="mergeFiles"
+                    accept=".pdf,application/pdf"
+                    multiple
+                    hidden
+                >
 
+                <button
+                    type="button"
+                    class="btn btn-primary pdf-action"
+                    data-action="merge"
+                >
+                    Merge PDFs →
+                </button>
 
-    /* =====================================================
-       MERGE PDF
-    ===================================================== */
+            </div>
 
-    if (mergeButton) {
+            <div
+                class="tool-status"
+                id="mergeStatus"
+                aria-live="polite"
+            ></div>
 
-        mergeButton.addEventListener("click", async () => {
+        </article>
 
-            const files =
-                mergeFiles?.files;
 
-            if (!files || files.length < 2) {
+        <!-- SPLIT PDF -->
 
-                setStatus(
-                    mergeStatus,
-                    "Please choose at least 2 PDF files.",
-                    "error"
-                );
+        <article class="tool-card pdf-tool">
 
-                return;
-            }
+            <div class="tool-icon">
+                ✂️
+            </div>
 
+            <h3>
+                Split PDF
+            </h3>
 
-            if (!hasPDFLib) {
+            <p>
+                Extract selected pages from a PDF document.
+            </p>
 
-                setStatus(
-                    mergeStatus,
-                    "PDF engine is not loaded. Please refresh the page.",
-                    "error"
-                );
+            <div class="tool-action">
 
-                return;
-            }
+                <label
+                    for="splitFile"
+                    class="file-button"
+                >
+                    Choose PDF
+                </label>
 
+                <input
+                    type="file"
+                    id="splitFile"
+                    accept=".pdf,application/pdf"
+                    hidden
+                >
 
-            for (const file of files) {
+                <button
+                    type="button"
+                    class="btn btn-primary pdf-action"
+                    data-action="split"
+                >
+                    Split PDF →
+                </button>
 
-                if (!isPDF(file)) {
+            </div>
 
-                    setStatus(
-                        mergeStatus,
-                        "Only PDF files are allowed.",
-                        "error"
-                    );
+            <div
+                class="tool-status"
+                id="splitStatus"
+                aria-live="polite"
+            ></div>
 
-                    return;
-                }
+        </article>
 
-            }
 
+        <!-- COMPRESS PDF -->
 
-            setButtonLoading(
-                mergeButton,
-                true
-            );
+        <article class="tool-card pdf-tool">
 
-            setStatus(
-                mergeStatus,
-                "Merging your PDFs...",
-                "loading"
-            );
+            <div class="tool-icon">
+                🗜️
+            </div>
 
+            <h3>
+                Compress PDF
+            </h3>
 
-            try {
+            <p>
+                Reduce PDF file size for easier sharing.
+            </p>
 
-                const mergedPdf =
-                    await PDFLib.PDFDocument.create();
+            <div class="tool-action">
 
+                <label
+                    for="compressFile"
+                    class="file-button"
+                >
+                    Choose PDF
+                </label>
 
-                for (const file of files) {
+                <input
+                    type="file"
+                    id="compressFile"
+                    accept=".pdf,application/pdf"
+                    hidden
+                >
 
-                    const arrayBuffer =
-                        await file.arrayBuffer();
+                <button
+                    type="button"
+                    class="btn btn-primary pdf-action"
+                    data-action="compress"
+                >
+                    Compress PDF →
+                </button>
 
-                    const sourcePdf =
-                        await PDFLib.PDFDocument.load(
-                            arrayBuffer
-                        );
+            </div>
 
+            <div
+                class="tool-status"
+                id="compressStatus"
+                aria-live="polite"
+            ></div>
 
-                    const pages =
-                        await mergedPdf.copyPages(
-                            sourcePdf,
-                            sourcePdf.getPageIndices()
-                        );
+        </article>
 
 
-                    pages.forEach(page => {
-                        mergedPdf.addPage(page);
-                    });
+        <!-- PDF TO IMAGE -->
 
-                }
+        <article class="tool-card pdf-tool">
 
+            <div class="tool-icon">
+                🖼️
+            </div>
 
-                const mergedBytes =
-                    await mergedPdf.save();
+            <h3>
+                PDF to Image
+            </h3>
 
+            <p>
+                Convert PDF pages into image files.
+            </p>
 
-                const blob =
-                    new Blob(
-                        [mergedBytes],
-                        {
-                            type: "application/pdf"
-                        }
-                    );
+            <div class="tool-action">
 
+                <label
+                    for="pdfImageFile"
+                    class="file-button"
+                >
+                    Choose PDF
+                </label>
 
-                downloadBlob(
-                    blob,
-                    "TOOLNEX-Merged.pdf"
-                );
+                <input
+                    type="file"
+                    id="pdfImageFile"
+                    accept=".pdf,application/pdf"
+                    hidden
+                >
 
+                <button
+                    type="button"
+                    class="btn btn-primary pdf-action"
+                    data-action="pdf-to-image"
+                >
+                    Convert to Image →
+                </button>
 
-                setStatus(
-                    mergeStatus,
-                    `Done — ${files.length} PDFs merged successfully.`,
-                    "success"
-                );
+            </div>
 
-            } catch (error) {
+            <div
+                class="tool-status"
+                id="pdfImageStatus"
+                aria-live="polite"
+            ></div>
 
-                console.error(error);
+        </article>
 
-                setStatus(
-                    mergeStatus,
-                    "Could not merge the PDFs. Make sure the files are valid.",
-                    "error"
-                );
 
-            } finally {
+    </div>
 
-                setButtonLoading(
-                    mergeButton,
-                    false,
-                    "Merge PDFs →"
-                );
+</section>
 
-            }
 
-        });
+<!-- HOW IT WORKS -->
 
-    }
+<section class="section">
 
+    <div class="section-heading">
 
-    /* =====================================================
-       SPLIT PDF
-    ===================================================== */
+        <span class="eyebrow">
+            HOW IT WORKS
+        </span>
 
-    if (splitButton) {
+        <h2>
+            Simple PDF <span>workflow</span>
+        </h2>
 
-        splitButton.addEventListener("click", async () => {
+        <p>
+            Choose a tool, select your file and process it in a few simple steps.
+        </p>
 
-            const file =
-                splitFile?.files?.[0];
+    </div>
 
-            if (!file) {
 
-                setStatus(
-                    splitStatus,
-                    "Please choose a PDF file first.",
-                    "error"
-                );
+    <div class="steps">
 
-                return;
-            }
+        <div class="step">
 
+            <span>01</span>
 
-            if (!isPDF(file)) {
+            <h3>
+                Choose a tool
+            </h3>
 
-                setStatus(
-                    splitStatus,
-                    "Please choose a valid PDF file.",
-                    "error"
-                );
+            <p>
+                Select the PDF operation you want to perform.
+            </p>
 
-                return;
-            }
+        </div>
 
 
-            if (!hasPDFLib) {
+        <div class="step">
 
-                setStatus(
-                    splitStatus,
-                    "PDF engine is not loaded. Please refresh the page.",
-                    "error"
-                );
+            <span>02</span>
 
-                return;
-            }
+            <h3>
+                Add your file
+            </h3>
 
+            <p>
+                Select the PDF document from your device.
+            </p>
 
-            setButtonLoading(
-                splitButton,
-                true
-            );
+        </div>
 
-            setStatus(
-                splitStatus,
-                "Reading your PDF...",
-                "loading"
-            );
 
+        <div class="step">
 
-            try {
+            <span>03</span>
 
-                const arrayBuffer =
-                    await file.arrayBuffer();
+            <h3>
+                Get your result
+            </h3>
 
+            <p>
+                Process your document and download the result.
+            </p>
 
-                const sourcePdf =
-                    await PDFLib.PDFDocument.load(
-                        arrayBuffer
-                    );
+        </div>
 
+    </div>
 
-                const pageCount =
-                    sourcePdf.getPageCount();
+</section>
 
 
-                if (pageCount === 0) {
+<!-- PRIVACY NOTE -->
 
-                    throw new Error(
-                        "PDF contains no pages."
-                    );
+<section class="section">
 
-                }
+    <div class="info-box">
 
+        <div class="info-icon">
+            🔒
+        </div>
 
-                /*
-                 * For a safe browser-based workflow,
-                 * each page is exported as its own PDF.
-                 */
+        <div>
 
-                for (
-                    let pageIndex = 0;
-                    pageIndex < pageCount;
-                    pageIndex++
-                ) {
+            <h3>
+                Your files matter
+            </h3>
 
-                    const singlePdf =
-                        await PDFLib.PDFDocument.create();
+            <p>
+                Do not upload sensitive or confidential documents
+                unless you understand how the tool processes your files.
+            </p>
 
+        </div>
 
-                    const [page] =
-                        await singlePdf.copyPages(
-                            sourcePdf,
-                            [pageIndex]
-                        );
+    </div>
 
+</section>
 
-                    singlePdf.addPage(page);
 
+<!-- CTA -->
 
-                    const bytes =
-                        await singlePdf.save();
+<section class="cta-section">
 
+    <div class="cta-box">
 
-                    const blob =
-                        new Blob(
-                            [bytes],
-                            {
-                                type: "application/pdf"
-                            }
-                        );
+        <span class="eyebrow">
+            TOOLNEX
+        </span>
 
+        <h2>
+            Need another kind of tool?
+        </h2>
 
-                    downloadBlob(
-                        blob,
-                        `TOOLNEX-Page-${pageIndex + 1}.pdf`
-                    );
+        <p>
+            Explore our complete toolbox for images, text and conversions.
+        </p>
 
+        <a
+            href="tools.html"
+            class="btn btn-primary"
+        >
+            Explore All Tools →
+        </a>
 
-                    /*
-                     * Small pause prevents browsers from
-                     * aggressively blocking multiple downloads.
-                     */
+    </div>
 
-                    await new Promise(resolve =>
-                        setTimeout(resolve, 120)
-                    );
+</section>
 
-                }
+</main>
 
+<!-- FOOTER -->
 
-                setStatus(
-                    splitStatus,
-                    `Done — ${pageCount} page PDF file${pageCount === 1 ? "" : "s"} created.`,
-                    "success"
-                );
+<footer class="footer">
 
-            } catch (error) {
 
-                console.error(error);
+<div class="footer-main">
 
-                setStatus(
-                    splitStatus,
-                    "Could not split this PDF. Make sure it is valid and not password protected.",
-                    "error"
-                );
 
-            } finally {
+    <div class="footer-brand">
 
-                setButtonLoading(
-                    splitButton,
-                    false,
-                    "Split PDF →"
-                );
+        <a href="index.html" class="logo">
+            TOOL<span>NEX</span>
+        </a>
 
-            }
+        <p>
+            Simple, useful online tools for everyday digital tasks.
+        </p>
 
-        });
+    </div>
 
-    }
 
+    <div class="footer-column">
 
-    /* =====================================================
-       COMPRESS PDF
-    ===================================================== */
+        <h4>Tools</h4>
 
-    if (compressButton) {
+        <a href="tools.html">All Tools</a>
 
-        compressButton.addEventListener("click", async () => {
+        <a href="pdf-tools.html" class="active">
+            PDF Tools
+        </a>
 
-            const file =
-                compressFile?.files?.[0];
+        <a href="image-tools.html">
+            Image Tools
+        </a>
 
-            if (!file) {
+        <a href="text-tools.html">
+            Text Tools
+        </a>
 
-                setStatus(
-                    compressStatus,
-                    "Please choose a PDF file first.",
-                    "error"
-                );
+        <a href="converters.html">
+            Converters
+        </a>
 
-                return;
-            }
+    </div>
 
 
-            if (!isPDF(file)) {
+    <div class="footer-column">
 
-                setStatus(
-                    compressStatus,
-                    "Please choose a valid PDF file.",
-                    "error"
-                );
+        <h4>Company</h4>
 
-                return;
-            }
+        <a href="about.html">
+            About
+        </a>
 
+        <a href="contact.html">
+            Contact
+        </a>
 
-            if (!hasPDFLib) {
+    </div>
 
-                setStatus(
-                    compressStatus,
-                    "PDF engine is not loaded. Please refresh the page.",
-                    "error"
-                );
 
-                return;
-            }
+    <div class="footer-column">
 
+        <h4>Legal</h4>
 
-            setButtonLoading(
-                compressButton,
-                true
-            );
+        <a href="privacy.html">
+            Privacy Policy
+        </a>
 
-            setStatus(
-                compressStatus,
-                "Optimizing your PDF...",
-                "loading"
-            );
+        <a href="terms.html">
+            Terms &amp; Conditions
+        </a>
 
+    </div>
 
-            try {
 
-                const originalBytes =
-                    await file.arrayBuffer();
+</div>
 
 
-                const pdf =
-                    await PDFLib.PDFDocument.load(
-                        originalBytes
-                    );
+<div class="footer-bottom">
 
+    <p>
+        © 2026 TOOLNEX. All rights reserved.
+    </p>
 
-                /*
-                 * Browser-side PDF libraries cannot perform
-                 * true image recompression like a server-side
-                 * PDF optimizer.
-                 *
-                 * This save operation can remove some
-                 * unnecessary document structure, but the
-                 * output may sometimes be similar in size.
-                 */
+    <p>
+        Built for useful things.
+    </p>
 
-                const optimizedBytes =
-                    await pdf.save({
-                        useObjectStreams: true,
-                        addDefaultPage: false
-                    });
+</div>
 
 
-                const originalSize =
-                    file.size;
+</footer>
 
-                const newSize =
-                    optimizedBytes.byteLength;
+<!-- GLOBAL JAVASCRIPT -->
 
+<script src="script.js"></script>
 
-                const blob =
-                    new Blob(
-                        [optimizedBytes],
-                        {
-                            type: "application/pdf"
-                        }
-                    );
+<!-- PDF PAGE JAVASCRIPT -->
 
+<script src="pdf-tools.js"></script>
 
-                downloadBlob(
-                    blob,
-                    "TOOLNEX-Compressed.pdf"
-                );
-
-
-                const difference =
-                    originalSize - newSize;
-
-
-                if (difference > 0) {
-
-                    const percent =
-                        (
-                            difference /
-                            originalSize
-                        ) * 100;
-
-
-                    setStatus(
-                        compressStatus,
-                        `Done — ${formatFileSize(difference)} saved (${percent.toFixed(1)}% smaller).`,
-                        "success"
-                    );
-
-                } else {
-
-                    setStatus(
-                        compressStatus,
-                        `Done — optimized copy created (${formatFileSize(newSize)}).`,
-                        "success"
-                    );
-
-                }
-
-            } catch (error) {
-
-                console.error(error);
-
-                setStatus(
-                    compressStatus,
-                    "Could not process this PDF. It may be encrypted or damaged.",
-                    "error"
-                );
-
-            } finally {
-
-                setButtonLoading(
-                    compressButton,
-                    false,
-                    "Compress PDF →"
-                );
-
-            }
-
-        });
-
-    }
-
-
-    /* =====================================================
-       PDF TO IMAGE
-    ===================================================== */
-
-    if (pdfImageButton) {
-
-        pdfImageButton.addEventListener("click", async () => {
-
-            const file =
-                pdfImageFile?.files?.[0];
-
-            if (!file) {
-
-                setStatus(
-                    pdfImageStatus,
-                    "Please choose a PDF file first.",
-                    "error"
-                );
-
-                return;
-            }
-
-
-            if (!isPDF(file)) {
-
-                setStatus(
-                    pdfImageStatus,
-                    "Please choose a valid PDF file.",
-                    "error"
-                );
-
-                return;
-            }
-
-
-            if (!hasPDFJS) {
-
-                setStatus(
-                    pdfImageStatus,
-                    "PDF image engine is not loaded. Please refresh the page.",
-                    "error"
-                );
-
-                return;
-            }
-
-
-            setButtonLoading(
-                pdfImageButton,
-                true
-            );
-
-            setStatus(
-                pdfImageStatus,
-                "Converting PDF pages into images...",
-                "loading"
-            );
-
-
-            try {
-
-                const arrayBuffer =
-                    await file.arrayBuffer();
-
-
-                const pdf =
-                    await pdfjsLib.getDocument({
-                        data: arrayBuffer
-                    }).promise;
-
-
-                const totalPages =
-                    pdf.numPages;
-
-
-                for (
-                    let pageNumber = 1;
-                    pageNumber <= totalPages;
-                    pageNumber++
-                ) {
-
-                    const page =
-                        await pdf.getPage(
-                            pageNumber
-                        );
-
-
-                    const viewport =
-                        page.getViewport({
-                            scale: 2
-                        });
-
-
-                    const canvas =
-                        document.createElement(
-                            "canvas"
-                        );
-
-
-                    const context =
-                        canvas.getContext("2d");
-
-
-                    canvas.width =
-                        Math.ceil(viewport.width);
-
-                    canvas.height =
-                        Math.ceil(viewport.height);
-
-
-                    await page.render({
-                        canvasContext: context,
-                        viewport: viewport
-                    }).promise;
-
-
-                    const blob =
-                        await new Promise(resolve => {
-
-                            canvas.toBlob(
-                                resolve,
-                                "image/png"
-                            );
-
-                        });
-
-
-                    if (!blob) {
-
-                        throw new Error(
-                            "Image conversion failed."
-                        );
-
-                    }
-
-
-                    downloadBlob(
-                        blob,
-                        `TOOLNEX-Page-${pageNumber}.png`
-                    );
-
-
-                    await new Promise(resolve =>
-                        setTimeout(resolve, 120)
-                    );
-
-                }
-
-
-                setStatus(
-                    pdfImageStatus,
-                    `Done — ${totalPages} image${totalPages === 1 ? "" : "s"} created.`,
-                    "success"
-                );
-
-            } catch (error) {
-
-                console.error(error);
-
-                setStatus(
-                    pdfImageStatus,
-                    "Could not convert this PDF into images.",
-                    "error"
-                );
-
-            } finally {
-
-                setButtonLoading(
-                    pdfImageButton,
-                    false,
-                    "Convert to Image →"
-                );
-
-            }
-
-        });
-
-    }
-
-
-    /* =====================================================
-       FILE SELECTION FEEDBACK
-    ===================================================== */
-
-    function addFileFeedback(input, status, multiple = false) {
-
-        if (!input || !status) return;
-
-        input.addEventListener("change", () => {
-
-            const files = input.files;
-
-            if (!files || files.length === 0) {
-
-                setStatus(
-                    status,
-                    ""
-                );
-
-                return;
-            }
-
-
-            if (multiple) {
-
-                setStatus(
-                    status,
-                    `${files.length} PDF file${files.length === 1 ? "" : "s"} selected.`
-                );
-
-            } else {
-
-                const file =
-                    files[0];
-
-                setStatus(
-                    status,
-                    `${file.name} selected — ${formatFileSize(file.size)}`
-                );
-
-            }
-
-        });
-
-    }
-
-
-    addFileFeedback(
-        mergeFiles,
-        mergeStatus,
-        true
-    );
-
-    addFileFeedback(
-        splitFile,
-        splitStatus
-    );
-
-    addFileFeedback(
-        compressFile,
-        compressStatus
-    );
-
-    addFileFeedback(
-        pdfImageFile,
-        pdfImageStatus
-    );
-
-
-});
-
+</body>
+</html>
