@@ -721,76 +721,237 @@
 
 
 
-    <!-- =========================
-         COMPRESSOR PREVIEW
-    ========================== -->
+<!-- =========================
+     PROFESSIONAL IMAGE COMPRESSOR
+========================== -->
 
-    <section
-        class="section tool-preview-section"
-        id="image-compressor"
-    >
+<section
+    class="section tool-preview-section"
+    id="image-compressor"
+>
 
-        <div class="section-heading">
+    <div class="section-heading">
 
-            <span class="eyebrow">
-                IMAGE COMPRESSOR
+        <span class="eyebrow">
+            IMAGE COMPRESSOR
+        </span>
+
+        <h2>
+            Make images smaller
+        </h2>
+
+        <p>
+            Reduce image file size while keeping control
+            over quality and output format.
+        </p>
+
+    </div>
+
+
+    <div class="tool-workspace image-compressor-workspace">
+
+
+        <!-- UPLOAD -->
+
+        <label
+            class="upload-box"
+            for="compressImageInput"
+        >
+
+            <span>
+                📤
             </span>
 
-            <h2>
-                Make images smaller
-            </h2>
+            <strong>
+                Choose an image
+            </strong>
 
-            <p>
-                Reduce image file size for easier storage
-                and sharing.
-            </p>
+            <small>
+                JPG, PNG, WEBP and common image formats
+            </small>
 
-        </div>
+        </label>
 
 
-        <div class="tool-workspace">
+        <input
+            type="file"
+            id="compressImageInput"
+            accept="image/*"
+            hidden
+        >
 
-            <div class="workspace-icon">
-                🗜️
-            </div>
 
-            <h3>
-                Image Compressor
-            </h3>
+        <!-- PREVIEW -->
 
-            <p>
-                Upload an image to start the compression process.
-            </p>
+        <div
+            class="image-preview-area"
+            id="compressPreviewArea"
+            hidden
+        >
 
-            <label
-                class="upload-box"
-                for="compressImageInput"
-            >
-
-                <span>
-                    📤
-                </span>
+            <div class="preview-heading">
 
                 <strong>
-                    Choose an image
+                    Compression Preview
                 </strong>
 
-                <small>
-                    Select an image from your device
-                </small>
+                <span id="compressPreviewStatus">
+                    Original
+                </span>
 
-            </label>
+            </div>
 
-            <input
-                type="file"
-                id="compressImageInput"
-                accept="image/*"
-                hidden
-            >
+
+            <div class="preview-image-wrapper">
+
+                <img
+                    id="compressPreview"
+                    alt="Image compression preview"
+                >
+
+            </div>
+
+
+            <!-- FILE SIZE COMPARISON -->
+
+            <div class="image-size-comparison">
+
+                <div>
+
+                    <small>
+                        Original
+                    </small>
+
+                    <strong id="compressOriginalInfo">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="size-arrow">
+                    →
+                </div>
+
+
+                <div>
+
+                    <small>
+                        Estimated
+                    </small>
+
+                    <strong id="compressEstimatedInfo">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
 
         </div>
 
-    </section>
+
+        <!-- CONTROLS -->
+
+        <div
+            class="image-controls"
+            id="compressControls"
+            hidden
+        >
+
+
+            <!-- QUALITY -->
+
+            <div class="control-group">
+
+                <label for="compressQuality">
+                    Compression Quality
+                </label>
+
+                <div class="quality-row">
+
+                    <input
+                        type="range"
+                        id="compressQuality"
+                        min="10"
+                        max="100"
+                        value="80"
+                    >
+
+                    <span id="compressQualityValue">
+                        80%
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- FORMAT -->
+
+            <div class="control-group">
+
+                <label for="compressFormat">
+                    Output Format
+                </label>
+
+                <select id="compressFormat">
+
+                    <option value="image/jpeg">
+                        JPG
+                    </option>
+
+                    <option value="image/webp">
+                        WEBP
+                    </option>
+
+                    <option value="image/png">
+                        PNG
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+
+            <div class="resize-actions">
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="compressImageButton"
+                >
+                    Compress Image ✓
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="downloadCompressedButton"
+                    disabled
+                >
+                    Download Image ↓
+                </button>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div
+                class="tool-status"
+                id="compressStatus"
+            ></div>
+
+        </div>
+
+    </div>
+
+</section>
+
 
 
 
